@@ -1,0 +1,78 @@
+Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), ..., (an, bn) 
+which makes sum of min(ai, bi) for all i from 1 to n as large as possible
+
+******************************************************************************************************
+我的解答：
+
+class Solution {
+    public int arrayPairSum(int[] nums) {
+        sort(nums);
+        return sums(nums);
+    }
+    public void sort(int[] a){
+        for(int i = 0; i < a.length - 1; i++){
+            int temp = a[i+1];
+            int j = i;
+            while(j >= 0 && a[j] > temp){
+                j--;                
+            }
+            for(int k = i + 1; k > j + 1; k--){
+                a[k] = a[k-1];                
+            }
+            a[j+1] = temp;
+        }
+    }
+    public int sums(int[] a){
+        int sum = 0;
+        for(int i = 0; i < a.length/2; i++)
+        {
+            sum = sum + a[2*i];
+        }            
+        return sum;
+    }
+    public static void main(String[] args){
+        int[] nums = {1,4,3,2};
+        Solution solution = new Solution();
+        int output = solution.arrayPairSum(nums);
+        System.out.println(output);
+    }
+}
+
+******************************************************************************************************
+别人的解答1：（排序直接用Arrays的sort方法）
+
+public class Solution {
+    public int arrayPairSum(int[] nums) {
+        Arrays.sort(nums);
+        int result = 0;
+        for (int i = 0; i < nums.length; i += 2) {
+            result += nums[i];
+        }
+        return result;
+    }
+}
+
+******************************************************************************************************
+别人的解答2：（用桶排序）
+public class Solution {
+    public int arrayPairSum(int[] nums) {
+        int[] array = new int[20001];
+        for (int i = 0; i < nums.length; i++) {
+            array[nums[i] + 10000]++;
+        }
+        int sum = 0;
+        boolean smaller = true;
+        for (int i = 0; i < array.length;) {
+            if (array[i] > 0) {
+                if (smaller) {
+                    sum += i - 10000;
+                }
+                smaller = !smaller;
+                array[i]--;
+            } else {
+                i++;
+            }
+        }
+        return sum;
+    }
+}
