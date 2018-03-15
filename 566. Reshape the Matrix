@@ -1,0 +1,47 @@
+In MATLAB, there is a very useful function called 'reshape', which can reshape a matrix into a new one with different size but keep its original data.
+
+You're given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.
+
+The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were.
+
+If the 'reshape' operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.
+
+******************************************************************************************************************************************************************************
+我的解答：
+class Solution {
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int[][] newnums = new int[r][c];
+        
+        int total = nums.length * nums[0].length;
+        if(total != r * c){
+            return nums;
+        }else{
+            int[] tempnums = new int[total];
+        
+            for(int i = 0; i < nums.length; i++){
+                for(int j = 0; j < nums[0].length; j++){
+                    tempnums[i*nums[0].length + j] = nums[i][j];
+                }
+            }        
+        
+            for(int i = 0; i < r; i++){
+                for(int j = 0; j < c; j++){                    
+                    newnums[i][j] = tempnums[i * c + j];
+                }
+            }
+            return newnums;
+        }
+        
+    }
+}
+
+******************************************************************************************************************************************************************************
+別人的解答：
+public int[][] matrixReshape(int[][] nums, int r, int c) {
+    int n = nums.length, m = nums[0].length;
+    if (r*c != n*m) return nums;
+    int[][] res = new int[r][c];
+    for (int i=0;i<r*c;i++) 
+        res[i/c][i%c] = nums[i/m][i%m];
+    return res;
+}
