@@ -30,14 +30,9 @@ class Solution {
         }            
         return sum;
     }
-    public static void main(String[] args){
-        int[] nums = {1,4,3,2};
-        Solution solution = new Solution();
-        int output = solution.arrayPairSum(nums);
-        System.out.println(output);
-    }
 }
 
+/*为避免大数和小数搭配，使得浪费小数的情况发生，就直接让最相近的两个数组合，最小化小数的浪费*/
 ******************************************************************************************************
 别人的解答1：（排序直接用Arrays的sort方法）
 
