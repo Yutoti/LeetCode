@@ -13,3 +13,9 @@ You're given a matrix represented by a two-dimensional array, and two positive i
 The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were.
 
 If the 'reshape' operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.
+
+
+## 766. Toeplitz Matrix （2018.3.24 18:40）
+A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.
+
+Now given an M x N matrix, return True if and only if the matrix is Toeplitz.
