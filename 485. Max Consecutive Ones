@@ -1,0 +1,52 @@
+Given a binary array, find the maximum number of consecutive 1s in this array.
+
+--------------------------------------------------------------------------------------------------------------
+我的解答：
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int max = 0;
+        boolean flag = true;
+        for(int i = 0; i < nums.length; i++){       //排除num中全部数都为0的情况
+            flag = nums[i] == 0;
+            if(!flag) break;
+        }
+        if(flag) return 0;
+                                                            //  除了num中全部为0的情况，都能处理
+        for(int i = 0; i < nums.length; i++){               //  i往后递增
+            while(i < nums.length && nums[i] == 0) i++;     //  i找到最接近的1
+            int j = i + 1;
+            while(j < nums.length && nums[j] == 1) j++;     //  j往后找有多少个1
+            int temp = j - i;
+            if(temp > max)  max = temp;            
+            i = j;
+        }
+        return max;
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------
+别人的解答-1：
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int max = 0, maxHere = 0;
+        for(int n : nums)
+            Math.max(max, maxHere = n == 0? 0: maxHere + 1);        //注意先算三目运算符，再将值赋给maxHere
+        return max;
+    }
+}
+三目运算符有助于简化代码
+--------------------------------------------------------------------------------------------------------------
+别人的解答-2：
+public class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+    int cnt=0,ret=0;
+    for(int i=0;i<nums.length;i++){
+        if(nums[i]==1){
+            cnt++;
+            ret=Math.max(ret,cnt);
+        }else{cnt=0;}
+    }
+    return ret;
+    }
+}
+/*这个解答的for循环次数要比我的解答多。当时我在for里面用while把i快速往后推，是想减少for循环的次数，但其实while中判断也多，执行效率未必就高些*/
