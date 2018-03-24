@@ -45,3 +45,7 @@ public int[][] matrixReshape(int[][] nums, int r, int c) {
         res[i/c][i%c] = nums[i/m][i%m];
     return res;
 }
+
+规律：若r*c矩阵元素从0开始计，矩阵行列数也从0开始计，则矩阵中按行计数，第k个元素的行数为k/c;列数为k%c。
+同样的，若矩阵按列计数，则第k个元素的行数为k/r;列数为k%r。
+
