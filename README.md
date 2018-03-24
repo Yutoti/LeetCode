@@ -19,3 +19,7 @@ If the 'reshape' operation with given parameters is possible and legal, output t
 A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same element.
 
 Now given an M x N matrix, return True if and only if the matrix is Toeplitz.
+
+
+## 485. Max Consecutive Ones （2018.3.24 21:05）
+Given a binary array, find the maximum number of consecutive 1s in this array.
