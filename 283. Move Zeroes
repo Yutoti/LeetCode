@@ -1,0 +1,24 @@
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
+
+Note:
+1. You must do this in-place without making a copy of the array.
+2. Minimize the total number of operations.
+---------------------------------------------------------------------------------------------------------------------------
+我的解答（参考别人的）：
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int j = 0;
+		    for(int i = 0; i < nums.length; i++){
+            if(nums[i] != 0){
+               int temp = nums[i];
+				       nums[i] = nums[j];
+				       nums[j] = temp;
+				       j++;
+            }
+        }
+    }
+}
+----------------------------------------------------------------------------------------------------------------------------
+这个解答还是挺有意思的，用了i和j两个“指针”，i正常循环，而j遇到非零正常和i保持同步循环，遇到0则保持不动，等待把i指向的非零元素移到该位置。
