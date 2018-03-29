@@ -42,7 +42,7 @@ Example:
  Given the above grid, return 6. Note the answer is not 11, because the island must be connected 4-directionally.
  
  
- ## 448. Find All Numbers Disappeared in an Array （2018.3.29 09:05）
+ ## 448. Find All Numbers Disappeared in an Array（2018.3.29 09:05）
  Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
 
 Find all the elements of [1, n] inclusive that do not appear in this array.
@@ -50,7 +50,7 @@ Find all the elements of [1, n] inclusive that do not appear in this array.
 Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
 
 
- ## 283. Move Zeroes
+ ## 283. Move Zeroes（2018.3.29 09:06）
  Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 
 For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
