@@ -58,3 +58,16 @@ For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums sh
 Note:
 1. You must do this in-place without making a copy of the array.
 2. Minimize the total number of operations.
+
+
+## 717. 1-bit and 2-bit Characters（2018.3.30 09:06）
+
+We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
+
+Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.
+
+
+## 169. Majority Element（2018.3.30 23:06）
+Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+
+You may assume that the array is non-empty and the majority element always exist in the array.
