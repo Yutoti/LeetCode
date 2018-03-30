@@ -1,0 +1,25 @@
+We have two special characters. The first character can be represented by one bit 0. The second character can be represented by two bits (10 or 11).
+
+Now given a string represented by several bits. Return whether the last character must be a one-bit character or not. The given string will always end with a zero.
+---------------------------------------------------------------------------------------------------------------
+我的解答：
+class Solution {
+    public boolean isOneBitCharacter(int[] bits) {
+		int count =0;
+		int n = bits.length;
+		for(int i = n - 2; i >= 0; i--){
+			count ++;
+			if(count%2 == 1 && bits[i] == 0) return true;
+			if(count%2 == 0 && bits[i] == 0) return false;
+		}
+		if(n%2 == 0){
+			return false;
+        }
+		else{
+			return true;
+		}			
+	}
+}
+
+所用时间：8ms
+击败90.7%的选手！
