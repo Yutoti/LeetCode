@@ -1,0 +1,54 @@
+Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+
+You may assume that each input would have exactly one solution and you may not use the same element twice.
+
+Input: numbers={2, 7, 11, 15}, target=9
+Output: index1=1, index2=2
+
+-------------------------------------------------------------------------------------------------------------------------
+我的解答：
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int[] ret = new int[2];
+        for(int i = 0; i < numbers.length; i++){
+            for(int j = i + 1; j < numbers.length; j++){
+                if(numbers[j] > target - numbers[i]) break;
+                if(numbers[j] == target - numbers[i]) {
+                    ret[0] = i + 1;
+                    ret[1] = j + 1;
+                    return ret;
+                }
+            }
+        }
+        return new int[]{0,0};
+    }
+}
+超过时间限制！
+
+-------------------------------------------------------------------------------------------------------------------------
+别人的解答：
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int l = 0, r = numbers.length - 1;
+        int sum = numbers[l] + numbers[r];
+        int[] index = new int[2];
+        while(sum != target){
+            if(sum < target) l++;
+            if(sum > target) r--;
+            sum = numbers[l] + numbers[r];
+        }
+        index[0] = l + 1;
+        index[1] = r + 1;
+        return index;
+    }
+}
+
+1ms
+98.7%
+
+-------------------------------------------------------------------------------------------------------------------------
+用穷举是最耗时的方法，时间复杂度O（n^2），我就是用的这个。
+别人的方法很巧妙，时间复杂度仅仅是O（n）。可以称为“小大减、大小加”的方法。
+
